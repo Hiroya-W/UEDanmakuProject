@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+
 #include "BulletEmitterComponent.generated.h"
 
 UCLASS()
@@ -19,11 +20,23 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+private:
+	FTimerHandle FireTimerHandle;
+
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UStaticMeshComponent* MeshComponent;
 
+	UPROPERTY(EditAnywhere, Category = "BulletEmitter")
+	TSubclassOf<class AStraightBullet> BulletClass;
+
+	// 弾を発射する感覚（秒）
+	UPROPERTY(EditAnywhere, Category = "BulletEmitter")
+	float FireRate;
+
+	UFUNCTION(BlueprintCallable, Category = "BulletEmitter")
+	void Fire();
 };
