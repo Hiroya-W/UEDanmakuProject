@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    paths-ignore:
+      - "*.md"
+  pull_request:
+    paths-ignore:
+      - "*.md"
+jobs:
+  format:
+    name: Format with clang-format
+    runs-on: "ubuntu-24.04"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install clang-format
+        run: sudo apt-get install clang-format
+
+      - name: Format
+        run: find ./Source -regex '.*\.\(cpp\|hpp\)' -exec clang-format -style=file -i {} \;
+
+      - name: Check diff
+        run: |
+          diff=$(git diff)
+          echo -n "$diff"
+          git diff --exit-code
