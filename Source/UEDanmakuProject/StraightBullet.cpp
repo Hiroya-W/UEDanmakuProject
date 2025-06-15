@@ -32,8 +32,11 @@ AStraightBullet::AStraightBullet()
 	ProjectileMovementComponent->SetUpdatedComponent(RootComponent);
 	ProjectileMovementComponent->InitialSpeed = 300.0f;
 	ProjectileMovementComponent->MaxSpeed = 300.0f;
-	ProjectileMovementComponent->bRotationFollowsVelocity = true;
+	// 速度の方向に合わせて回転しない
+	ProjectileMovementComponent->bRotationFollowsVelocity = false;
+	// 跳ね返りはしない
 	ProjectileMovementComponent->bShouldBounce = false;
+	// 重力の影響を受けないように
 	ProjectileMovementComponent->ProjectileGravityScale = 0.0f;
 
 	InitialLifeSpan = 3.0f;
