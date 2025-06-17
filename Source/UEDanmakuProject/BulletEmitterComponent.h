@@ -23,6 +23,7 @@ protected:
 private:
 	FTimerHandle FireTimerHandle;
 
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -35,7 +36,13 @@ public:
 
 	// 弾を発射する感覚（秒）
 	UPROPERTY(EditAnywhere, Category = "BulletEmitter")
-	float FireRate;
+	float ShotRate;
+	// 発射角度の初期値
+	UPROPERTY(EditAnywhere, Category = "BulletEmitter")
+	float ShotAngle;
+	// 発射間隔ごとに回転させる角度
+	UPROPERTY(EditAnywhere, Category = "BulletEmitter")
+	float ShotAngleRate;
 
 	UFUNCTION(BlueprintCallable, Category = "BulletEmitter")
 	void Fire();
