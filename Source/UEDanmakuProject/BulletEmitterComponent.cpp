@@ -22,8 +22,9 @@ ABulletEmitterComponent::ABulletEmitterComponent()
 		MeshComponent->SetWorldScale3D(FVector(0.5f));
 	}
 
-	// デフォルトの発射間隔は1秒
 	ShotRate = 1.0f;
+	ShotAngle = 0.0f;
+	ShotAngleRate = 1.0f;
 }
 
 // Called when the game starts or when spawned
@@ -45,9 +46,15 @@ void ABulletEmitterComponent::Fire()
 {
 	if (BulletClass)
 	{
+		// 敵の現在の向き
+		const FRotator EmitterRotation = GetActorRotation();
+		// 弾の発射角度
+		const FRotator BulletRotation = EmitterRotation + FRotator(0, ShotAngle, 0);
 		const FVector SpawnLocation = GetActorLocation();
-		const FRotator SpawnRotation = GetActorRotation();
 
-		GetWorld()->SpawnActor<AStraightBullet>(BulletClass, SpawnLocation, SpawnRotation);
+		GetWorld()->SpawnActor<AStraightBullet>(BulletClass, SpawnLocation, BulletRotation);
+
+		// 次の弾の発射角度
+		ShotAngle = FMath::Fmod(ShotAngle + ShotAngleRate, 360.0f);
 	}
 }
