@@ -35,7 +35,7 @@ public:
 
 	// 弾を発射する感覚（秒）
 	UPROPERTY(EditAnywhere, Category = "BulletEmitter")
-	float FireRate;
+	float ShotRate;
 
 	UFUNCTION(BlueprintCallable, Category = "BulletEmitter")
 	void Fire();

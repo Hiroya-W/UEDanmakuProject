@@ -23,7 +23,7 @@ ABulletEmitterComponent::ABulletEmitterComponent()
 	}
 
 	// デフォルトの発射間隔は1秒
-	FireRate = 1.0f;
+	ShotRate = 1.0f;
 }
 
 // Called when the game starts or when spawned
@@ -31,8 +31,8 @@ void ABulletEmitterComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	GetWorld()->GetTimerManager().SetTimer(FireTimerHandle, this, &ABulletEmitterComponent::Fire, FireRate, true,
-										   FireRate);
+	GetWorld()->GetTimerManager().SetTimer(FireTimerHandle, this, &ABulletEmitterComponent::Fire, ShotRate, true,
+										   ShotRate);
 }
 
 // Called every frame
