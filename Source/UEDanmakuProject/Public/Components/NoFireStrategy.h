@@ -8,7 +8,7 @@
 #include "NoFireStrategy.generated.h"
 
 /**
- *
+ * 何も弾を撃たない
  */
 UCLASS()
 class UEDANMAKUPROJECT_API UNoFireStrategy : public UFireStrategyBase
@@ -16,6 +16,8 @@ class UEDANMAKUPROJECT_API UNoFireStrategy : public UFireStrategyBase
 	GENERATED_BODY()
 
 public:
+	UNoFireStrategy();
+
 	virtual void Fire() override;
 	virtual float GetShotRate() const override;
 };

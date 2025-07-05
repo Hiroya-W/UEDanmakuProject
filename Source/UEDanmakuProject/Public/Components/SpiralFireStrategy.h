@@ -9,12 +9,15 @@
 #include "SpiralFireStrategy.generated.h"
 
 /**
- *
+ * 多方向渦巻弾
  */
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class UEDANMAKUPROJECT_API USpiralFireStrategy : public UFireStrategyBase
 {
 	GENERATED_BODY()
+
+public:
+	USpiralFireStrategy();
 
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Danmaku")

@@ -5,8 +5,10 @@
 UCLASS(Abstract)
 class UEDANMAKUPROJECT_API UFireStrategyBase : public UActorComponent
 {
-public:
 	GENERATED_BODY()
+public:
+	UFireStrategyBase();
+	
 	// 発射ロジック
 	virtual void Fire() PURE_VIRTUAL(UFireStrategyBase::Fire);
 

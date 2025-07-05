@@ -1,6 +1,12 @@
 ﻿#include "Components/SpiralFireStrategy.h"
 
-#include "UEDanmakuProject/Bullet.h"
+#include "Projectiles/Bullet.h"
+
+USpiralFireStrategy::USpiralFireStrategy()
+{
+	CurrentPatternRotation = FRotator::ZeroRotator;
+}
+
 
 void USpiralFireStrategy::Fire()
 {
@@ -8,7 +14,7 @@ void USpiralFireStrategy::Fire()
 	{
 		return;
 	}
-	
+
 	const FDanmakuPatternData& DanmakuPatternData = DanmakuPatternAsset->PatternData;
 	AActor* Emitter = GetOwner();
 	const uint32 NumberOfShots = DanmakuPatternData.NumberOfShots;

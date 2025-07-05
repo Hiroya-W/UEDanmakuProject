@@ -3,6 +3,11 @@
 
 #include "Components/NoFireStrategy.h"
 
+UNoFireStrategy::UNoFireStrategy()
+{
+}
+
+
 void UNoFireStrategy::Fire()
 {
 }
