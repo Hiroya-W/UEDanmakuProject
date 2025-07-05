@@ -41,10 +41,9 @@ void USpiralFireStrategy::Fire()
 		}
 
 		// 次の弾の発射角度
-		CurrentPatternRotation+= DanmakuPatternData.RotationPerShot;
+		CurrentPatternRotation += DanmakuPatternData.RotationPerShot;
 		CurrentPatternRotation.Normalize();
 	}
-	
 }
 
 float USpiralFireStrategy::GetShotRate() const
@@ -55,4 +54,3 @@ float USpiralFireStrategy::GetShotRate() const
 	}
 	return 1.0f;
 }
-
