@@ -32,7 +32,7 @@ public:
 	UStaticMeshComponent* MeshComponent;
 
 	UPROPERTY(EditAnywhere, Category = "BulletEmitter")
-	TSubclassOf<class AStraightBullet> BulletClass;
+	TSubclassOf<class ABullet> BulletClass;
 
 	// 弾を発射する感覚（秒）
 	UPROPERTY(EditAnywhere, Category = "BulletEmitter")

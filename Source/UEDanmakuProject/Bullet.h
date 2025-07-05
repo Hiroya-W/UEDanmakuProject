@@ -5,20 +5,20 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 
-#include "StraightBullet.generated.h"
+#include "Bullet.generated.h"
 
 class USphereComponent;
 class UStaticMeshComponent;
 class UProjectileMovementComponent;
 
 UCLASS()
-class UEDANMAKUPROJECT_API AStraightBullet : public AActor
+class UEDANMAKUPROJECT_API ABullet : public AActor
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this actor's properties
-	AStraightBullet();
+	ABullet();
 
 protected:
 	// Called when the game starts or when spawned

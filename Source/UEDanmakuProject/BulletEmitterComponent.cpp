@@ -3,7 +3,7 @@
 
 #include "BulletEmitterComponent.h"
 
-#include "StraightBullet.h"
+#include "Bullet.h"
 
 // Sets default values
 ABulletEmitterComponent::ABulletEmitterComponent()
@@ -63,7 +63,7 @@ void ABulletEmitterComponent::Fire()
 			const FRotator BulletRotation = EmitterRotation + NextShotAngle;
 			const FVector SpawnLocation = GetActorLocation();
 
-			GetWorld()->SpawnActor<AStraightBullet>(BulletClass, SpawnLocation, BulletRotation);
+			GetWorld()->SpawnActor<ABullet>(BulletClass, SpawnLocation, BulletRotation);
 		}
 
 		// 次の弾の発射角度
