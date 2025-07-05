@@ -3,7 +3,7 @@
 #include "FireStrategyBase.generated.h"
 
 UCLASS(Abstract)
-class UEDanmakuProject_API UFireStrategyBase : public UActorComponent
+class UEDANMAKUPROJECT_API UFireStrategyBase : public UActorComponent
 {
 public:
 	GENERATED_BODY()
