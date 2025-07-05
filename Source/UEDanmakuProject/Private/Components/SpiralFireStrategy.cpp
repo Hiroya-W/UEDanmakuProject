@@ -1,10 +1,15 @@
 ﻿#include "Components/SpiralFireStrategy.h"
 
+#include "Data/DanmakuPatternAsset.h"
 #include "Projectiles/Bullet.h"
 
 USpiralFireStrategy::USpiralFireStrategy()
 {
 	CurrentPatternRotation = FRotator::ZeroRotator;
+	if (!DanmakuPatternAsset)
+	{
+		DanmakuPatternAsset = Cast<UDanmakuPatternAsset>(StaticLoadObject(UDanmakuPatternAsset::StaticClass(), nullptr, TEXT("/Game/SpiralDemo")));
+	}
 }
 
 

@@ -4,9 +4,10 @@
 
 #include "Components/FireStrategyBase.h"
 #include "CoreMinimal.h"
-#include "Data/DanmakuPatternAsset.h"
 
 #include "SpiralFireStrategy.generated.h"
+
+class UDanmakuFireStrategy;
 
 /**
  * 多方向渦巻弾
@@ -21,7 +22,7 @@ public:
 
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Danmaku")
-	UDanmakuPatternAsset* DanmakuPatternAsset;
+	TSoftObjectPtr<class UDanmakuPatternAsset> DanmakuPatternAsset;
 
 private:
 	FRotator CurrentPatternRotation;
