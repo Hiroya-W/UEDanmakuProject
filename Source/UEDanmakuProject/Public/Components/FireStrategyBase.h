@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#include "FireStrategyBase.generated.h"
+
 UCLASS(Abstract)
 class UEDanmakuProject_API UFireStrategyBase : public UActorComponent
 {
