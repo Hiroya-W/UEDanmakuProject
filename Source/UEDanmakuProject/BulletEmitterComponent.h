@@ -37,12 +37,16 @@ public:
 	// 弾を発射する感覚（秒）
 	UPROPERTY(EditAnywhere, Category = "BulletEmitter")
 	float ShotRate;
-	// 発射角度の初期値
+	// 現在の発射角度
 	UPROPERTY(EditAnywhere, Category = "BulletEmitter")
-	float ShotAngle;
+	FRotator ShotRotation;
 	// 発射間隔ごとに回転させる角度
 	UPROPERTY(EditAnywhere, Category = "BulletEmitter")
-	float ShotAngleRate;
+	FRotator ShotRotationRate;
+
+	// 同時に発射する弾数
+	UPROPERTY(EditAnywhere, Category = "BulletEmitter", meta = (ClampMin = 0))
+	uint32 ShotCount;
 
 	UFUNCTION(BlueprintCallable, Category = "BulletEmitter")
 	void Fire();
