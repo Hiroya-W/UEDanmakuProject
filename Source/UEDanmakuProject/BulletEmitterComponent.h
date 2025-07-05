@@ -44,6 +44,10 @@ public:
 	UPROPERTY(EditAnywhere, Category = "BulletEmitter")
 	float ShotAngleRate;
 
+	// 同時に発射する弾数
+	UPROPERTY(EditAnywhere, Category = "BulletEmitter", meta = (ClampMin = 0))
+	uint32 ShotCount;
+
 	UFUNCTION(BlueprintCallable, Category = "BulletEmitter")
 	void Fire();
 };
