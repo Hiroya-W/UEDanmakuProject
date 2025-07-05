@@ -1,7 +1,8 @@
 // Copyright (c) 2025, Hiroya-W All rights reserved.
 
 
-#include "Bullet.h"
+#include "Projectiles/Bullet.h"
+
 #include "Components/SphereComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 
