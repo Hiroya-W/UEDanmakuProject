@@ -23,15 +23,18 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
-	// 弾幕のパターン
-	// これを差し替えれば様々な弾幕を撃つものに差し替えられる
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Danmaku", meta = (AllowPrivateAccess = "true"))
-	UFireStrategyBase* FireStrategy;
-
 	void Fire() const;
 	FTimerHandle FireTimerHandle;
 
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Danmaku")
+	UStaticMeshComponent* MeshComponent;
+
+	// 弾幕のパターン
+	// これを差し替えれば様々な弾幕を撃つものに差し替えられる
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Danmaku", meta = (MustImplement = "FireStrategyBase"))
+	UFireStrategyBase* FireStrategy;
 };
