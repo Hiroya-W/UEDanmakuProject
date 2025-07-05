@@ -23,8 +23,8 @@ ABulletEmitterComponent::ABulletEmitterComponent()
 	}
 
 	ShotRate = 1.0f;
-	ShotAngle = 0.0f;
-	ShotAngleRate = 1.0f;
+	ShotRotation = FRotator::ZeroRotator;
+	ShotRotationRate = FRotator(0.0f, 1.0f, 0.0f);
 	ShotCount = 4;
 }
 
@@ -47,24 +47,27 @@ void ABulletEmitterComponent::Fire()
 {
 	if (BulletClass && ShotCount > 0)
 	{
-		// 弾間の角度
+		// 敵の現在の向き
+		const FRotator EmitterRotation = GetActorRotation();
+
+		// N-way弾間の角度
 		// (例: 4方向なら360 / 4 = 90 度ずつずらす)
 		const float ShotAngleBetweenShots = 360.0f / ShotCount;
 
 		for (uint32 i = 0; i < ShotCount; i++)
 		{
-			const float NextShotAngle = ShotAngle + (i * ShotAngleBetweenShots);
+			// パターン全体の3D回転 + N-way の弾の広がり
+			const FRotator NextShotAngle = ShotRotation + FRotator(0.0f, i * ShotAngleBetweenShots, 0.0f);
 
-			// 敵の現在の向き
-			const FRotator EmitterRotation = GetActorRotation();
 			// 弾の発射角度
-			const FRotator BulletRotation = EmitterRotation + FRotator(0, NextShotAngle, 0);
+			const FRotator BulletRotation = EmitterRotation + NextShotAngle;
 			const FVector SpawnLocation = GetActorLocation();
 
 			GetWorld()->SpawnActor<AStraightBullet>(BulletClass, SpawnLocation, BulletRotation);
 		}
 
 		// 次の弾の発射角度
-		ShotAngle = FMath::Fmod(ShotAngle + ShotAngleRate, 360.0f);
+		ShotRotation += ShotRotationRate;
+		ShotRotation.Normalize();
 	}
 }
