@@ -17,7 +17,7 @@ struct FDanmakuPatternData
 
 	// 発射する弾のクラス
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSubclassOf<ABullet> Bullet;
+	TSubclassOf<ABullet> BulletClass;
 
 	// 弾を発射する間隔（秒）
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (ClampMin = 0))
