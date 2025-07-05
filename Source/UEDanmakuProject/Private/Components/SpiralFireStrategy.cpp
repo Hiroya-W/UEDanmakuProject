@@ -41,7 +41,7 @@ void USpiralFireStrategy::Fire()
 	
 }
 
-float USpiralFireStrategy::GetShotRate()
+float USpiralFireStrategy::GetShotRate() const
 {
 	if (DanmakuPatternAsset)
 	{

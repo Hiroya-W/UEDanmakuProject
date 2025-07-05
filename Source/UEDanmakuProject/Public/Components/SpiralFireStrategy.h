@@ -25,5 +25,5 @@ private:
 
 public:
 	virtual void Fire() override;
-	virtual float GetShotRate() override;
+	virtual float GetShotRate() const override;
 };

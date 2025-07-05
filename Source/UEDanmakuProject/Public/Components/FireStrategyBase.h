@@ -12,5 +12,5 @@ public:
 
 	// 発射間隔を返す
 	// 現状このクラスのインスタンスを持つActorでタイマーを設定しているので取得できるようにしている
-	virtual float GetShotRate() PURE_VIRTUAL(UFireStrategyBase::GetShotRate, return 0.0f;);
+	virtual float GetShotRate() const PURE_VIRTUAL(UFireStrategyBase::GetShotRate, return 0.0f;);
 };
