@@ -6,7 +6,7 @@
 // Sets default values
 ABulletEmitterComponentBase::ABulletEmitterComponentBase()
 {
- 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	// 自分の見た目を立方体として表現しておく
@@ -27,20 +27,16 @@ ABulletEmitterComponentBase::ABulletEmitterComponentBase()
 void ABulletEmitterComponentBase::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
 void ABulletEmitterComponentBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 // Called to bind functionality to input
 void ABulletEmitterComponentBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
 }
-
