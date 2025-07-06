@@ -1,13 +1,13 @@
 // Copyright (c) 2025, Hiroya-W All rights reserved.
 
 
-#include "StraightBullet.h"
+#include "Projectiles/Bullet.h"
 
 #include "Components/SphereComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 
 // Sets default values
-AStraightBullet::AStraightBullet()
+ABullet::ABullet()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -43,13 +43,13 @@ AStraightBullet::AStraightBullet()
 }
 
 // Called when the game starts or when spawned
-void AStraightBullet::BeginPlay()
+void ABullet::BeginPlay()
 {
 	Super::BeginPlay();
 }
 
 // Called every frame
-void AStraightBullet::Tick(float DeltaTime)
+void ABullet::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 }

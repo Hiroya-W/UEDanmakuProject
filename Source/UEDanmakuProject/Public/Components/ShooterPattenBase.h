@@ -4,10 +4,10 @@
 
 #include "Components/ActorComponent.h"
 #include "CoreMinimal.h"
+#include "Projectiles/Bullet.h"
 
 #include "ShooterPattenBase.generated.h"
 
-class AStraightBullet;
 
 UCLASS(Abstract)
 class UEDANMAKUPROJECT_API UShooterPattenBase : public UActorComponent
@@ -20,7 +20,7 @@ protected:
 
 	// TODO: 真っすぐ進むだけの弾じゃないクラスを定義して置き換える
 	UPROPERTY(EditAnywhere, Category = "Danmaku")
-	TSubclassOf<class AStraightBullet> BulletClass;
+	TSubclassOf<class ABullet> BulletClass;
 
 	FTimerHandle FireTimerHandle;
 

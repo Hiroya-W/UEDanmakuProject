@@ -3,8 +3,6 @@
 
 #include "Components/MultipleSpiralShooter.h"
 
-#include "UEDanmakuProject/StraightBullet.h"
-
 UMultipleSpiralShooter::UMultipleSpiralShooter()
 {
 	CurrentPatternRotation = FRotator::ZeroRotator;
@@ -40,7 +38,7 @@ void UMultipleSpiralShooter::Fire()
 			const FRotator BulletRotation = EmitterRotation + NextShotRotation;
 			const FVector SpawnLocation = Emitter->GetActorLocation();
 
-			GetWorld()->SpawnActor<AStraightBullet>(BulletClass, SpawnLocation, BulletRotation);
+			GetWorld()->SpawnActor<ABullet>(BulletClass, SpawnLocation, BulletRotation);
 		}
 
 		// 次の弾の発射角度
