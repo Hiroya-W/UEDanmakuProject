@@ -39,7 +39,7 @@ ABullet::ABullet()
 	// 重力の影響を受けないように
 	ProjectileMovementComponent->ProjectileGravityScale = 0.0f;
 
-	InitialLifeSpan = 3.0f;
+	InitialLifeSpan = 10.0f;
 }
 
 // Called when the game starts or when spawned
