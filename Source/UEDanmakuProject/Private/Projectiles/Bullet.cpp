@@ -28,8 +28,7 @@ ABullet::ABullet()
 	}
 
 	static ConstructorHelpers::FObjectFinder<UMaterial> SphereMaterialAsset(
-		TEXT("/Game/Projectiles/Bullet/M_Bullet_Big.M_Bullet_Big")
-	);
+		TEXT("/Game/Projectiles/Bullet/M_Bullet_Big.M_Bullet_Big"));
 
 	if (SphereMaterialAsset.Succeeded())
 	{
