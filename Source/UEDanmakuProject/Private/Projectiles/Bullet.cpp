@@ -18,13 +18,22 @@ ABullet::ABullet()
 	MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
 	MeshComponent->SetupAttachment(RootComponent);
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> SphereVisualAssset(
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> SphereVisualAsset(
 		TEXT("/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere"));
-	if (SphereVisualAssset.Succeeded())
+	if (SphereVisualAsset.Succeeded())
 	{
-		MeshComponent->SetStaticMesh(SphereVisualAssset.Object);
+		MeshComponent->SetStaticMesh(SphereVisualAsset.Object);
 		MeshComponent->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
 		MeshComponent->SetWorldScale3D(FVector(0.5f));
+	}
+
+	static ConstructorHelpers::FObjectFinder<UMaterial> SphereMaterialAsset(
+		TEXT("/Game/Projectiles/Bullet/M_Bullet_Big.M_Bullet_Big")
+	);
+
+	if (SphereMaterialAsset.Succeeded())
+	{
+		MeshComponent->SetMaterial(0, SphereMaterialAsset.Object);
 	}
 
 	ProjectileMovementComponent =
